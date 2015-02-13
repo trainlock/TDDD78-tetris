@@ -1,7 +1,9 @@
 package se.liu.ida.linbe810.tddd78;
 
-public class BoardToTextConverter
+public final class BoardToTextConverter
 {
+    private BoardToTextConverter() {}
+
     public static String convertToText(Board gameBoard) {
 	StringBuilder builder = new StringBuilder();
 	int height = gameBoard.getHeight();
@@ -42,7 +44,7 @@ public class BoardToTextConverter
 	return polyCordY;
     }
 
-    public static StringBuilder squareType(SquareType squareType, StringBuilder builder) {
+    public static void squareType(SquareType squareType, StringBuilder builder) {
 	switch (squareType) {
 	    case EMPTY:
 		builder.append(" ");

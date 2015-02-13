@@ -9,6 +9,7 @@ public class TetrisFrame extends JFrame
     public static final int TIME_INTERVALS = 500;
     private JTextArea textBoard;
     private Board gameBoard;
+    public static final int FONT_SIZE = 24;
 
     public TetrisFrame(final Board gameBoard, final String title) throws HeadlessException {
 	super(title);
@@ -18,7 +19,7 @@ public class TetrisFrame extends JFrame
 
 	textBoard = new JTextArea(rows, columns);
 	textBoard.setText(BoardToTextConverter.convertToText(gameBoard));
-	Font font = new Font("monospaced", Font.BOLD, 24);
+	Font font = new Font("monospaced", Font.BOLD, FONT_SIZE);
 	textBoard.setFont(font);
 
 	this.setLayout(new BorderLayout());
@@ -33,7 +34,7 @@ public class TetrisFrame extends JFrame
 	//clockTimer.stop();
     }
 
-    public JTextArea getTextArea(){
+    public JTextArea getTextBoard(){
 	return textBoard;
     }
 

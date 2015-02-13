@@ -7,7 +7,6 @@ public class Board
     private SquareType[][] squares;
     private int height, width;
     private Poly falling;
-    private int fallingX, fallingY;
 
     public Board(int height, int width) {
         Random rand = new Random();
@@ -18,8 +17,8 @@ public class Board
         squares = new SquareType[height + border][width + border];
 
         falling = TetrominoMaker.getPoly(rand.nextInt(TetrominoMaker.getNumberOfTypes()));
-        fallingX = 0;
-        fallingY = 0;
+        final int fallingX = 0;
+        final int fallingY = 0;
 
         for (int column = 0; column < height + border; column++) {
             for (int row = 0; row < width + border; row++) {

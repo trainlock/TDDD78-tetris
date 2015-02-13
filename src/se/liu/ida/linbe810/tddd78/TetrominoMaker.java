@@ -1,7 +1,9 @@
 package se.liu.ida.linbe810.tddd78;
 
-public class TetrominoMaker
+public final class TetrominoMaker
 {
+    private TetrominoMaker() {}
+
     public static int getNumberOfTypes() {
 	return (SquareType.values().length -2);
     }
@@ -36,13 +38,12 @@ public class TetrominoMaker
 	return poly;
     }
 
-    public static SquareType[][] createEmptyBackground(SquareType[][] square, int squareSize) {
+    public static void createEmptyBackground(SquareType[][] square, int squareSize) {
 	for (int height = 0; height < squareSize; height++) {
 	    for (int width = 0; width < squareSize; width++) {
 		square[height][width] = SquareType.EMPTY;
 	    }
 	}
-	return square;
     }
 
     public static Poly createPolyI() {

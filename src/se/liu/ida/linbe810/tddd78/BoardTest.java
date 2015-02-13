@@ -1,7 +1,10 @@
 package se.liu.ida.linbe810.tddd78;
 
-public class BoardTest
+public final class BoardTest
 {
+
+    private BoardTest() {}
+
     public static void main(String[] args) {
 	//for (int count = 0; count < 10; count++) {
 	Board board = new Board(10, 10);
