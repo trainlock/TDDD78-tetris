@@ -2,6 +2,9 @@ package se.liu.ida.linbe810.tddd78;
 
 import java.util.Random;
 
+/**
+ * Creates a gameboard and fills it up with empty spaces.
+ */
 public class Board
 {
     private SquareType[][] squares;
@@ -11,23 +14,22 @@ public class Board
     public Board(int height, int width) {
         Random rand = new Random();
 
-        int border = 1;
         this.height = height;
         this.width = width;
-        squares = new SquareType[height + border][width + border];
+        squares = new SquareType[height][width];
 
         falling = TetrominoMaker.getPoly(rand.nextInt(TetrominoMaker.getNumberOfTypes()));
         final int fallingX = 0;
         final int fallingY = 0;
 
-        for (int column = 0; column < height + border; column++) {
-            for (int row = 0; row < width + border; row++) {
-                if (column == 0 || row == 0 ||
-                    row == width + border - 1 || column == height + border -1) {
-                    squares[column][row] = SquareType.OUTSIDE;
+        for (int row = 0; row < height ; row++) {
+            for (int column = 0; column < width ; column++) {
+                if (row == 0 || column == 0 ||
+                    column == width -1 || row == height -1) {
+                    squares[row][column] = SquareType.OUTSIDE;
                 }
                 else{
-                    squares[column][row] = SquareType.EMPTY ;
+                    squares[row][column] = SquareType.EMPTY ;
                 }
             }
         }
@@ -37,8 +39,8 @@ public class Board
         Random rand = new Random();
         SquareType[] randSquare = SquareType.values();
         int squareLength = randSquare.length - 1;
-        for (int column = 1; column < height; column++) {
-            for (int row = 1; row < width; row++) {
+        for (int column = 1; column < height -1; column++) {
+            for (int row = 1; row < width -1; row++) {
                 setSquare(column, row, randSquare[rand.nextInt(squareLength)]);
             }
         }
@@ -70,15 +72,16 @@ public class Board
     }
 
     public int getWidth() {
+        // Kraschar om den inte har någon storlek.
         return squares[0].length;
     }
 
+    /**
     public static void main(String[] args) {
 	Board randomBoard = new Board(10, 10);
         System.out.println(randomBoard);
     }
 
-    /**
     public SquareType getType() {
         SquareType[] randSquare = SquareType.values();
         int squareLength = randSquare.length -1;
