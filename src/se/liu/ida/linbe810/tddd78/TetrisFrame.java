@@ -15,6 +15,7 @@ public class TetrisFrame extends JFrame
      */
     private JFrame frame;
     private Board gameBoard;
+    private JComponent component;
 
     public TetrisFrame(final Board gameBoard, final String title) throws HeadlessException {
 	super(title);
@@ -30,7 +31,7 @@ public class TetrisFrame extends JFrame
 	final Action doOneStep = new AbstractAction() {
 	    @Override public void actionPerformed(final ActionEvent e) {
   		gameBoard.randomBoard();
-		repaint();
+		component.repaint();
 	    }
  	};
 
@@ -43,12 +44,12 @@ public class TetrisFrame extends JFrame
     }
 
     public void createGUI() {
-	TetrisComponent comp = new TetrisComponent(gameBoard);
+	component = new TetrisComponent(gameBoard);
 
-	comp.setSize(getPreferredSize());
+	component.setSize(getPreferredSize());
 
 	frame.setLayout(new BorderLayout());
-	frame.add(comp, BorderLayout.CENTER);
+	frame.add(component, BorderLayout.CENTER);
     }
 
     private void createMenus() {

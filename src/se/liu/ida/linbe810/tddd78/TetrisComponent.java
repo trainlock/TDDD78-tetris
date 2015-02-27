@@ -9,7 +9,6 @@ public class TetrisComponent extends JComponent
 {
     private static Board gameBoard;
     private EnumMap<SquareType, Color> colourMap;
-    private static int BLOCK_SIZE = 24;
     private static int SPACE = 2;
     private static int TEXT_SIZE = 12;
     private static int SQUARE_SIZE = 30;
@@ -21,8 +20,8 @@ public class TetrisComponent extends JComponent
     }
 
     public Dimension getPreferredSize() {
-	int width = BLOCK_SIZE * gameBoard.getWidth();
-	int height = BLOCK_SIZE * gameBoard.getHeight();
+	int width = SQUARE_SIZE * gameBoard.getWidth();
+	int height = SQUARE_SIZE * gameBoard.getHeight();
         System.out.println("Widht: " + width + " Height :" + height);
         return new Dimension(width, height);
     }
