@@ -1,5 +1,6 @@
 package se.liu.ida.linbe810.tddd78;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -10,6 +11,7 @@ public class Board
     private SquareType[][] squares;
     private int height, width;
     private Poly falling;
+    private List<BoardListener> boardListener;
 
     public Board(int height, int width) {
         Random rand = new Random();
@@ -44,6 +46,10 @@ public class Board
                 setSquare(column, row, randSquare[rand.nextInt(squareLength)]);
             }
         }
+    }
+
+    public void addBoardListener( BoardListener bl) {
+        boardListener.add(bl);
     }
 
     public void setSquare(int h, int w, SquareType value) {

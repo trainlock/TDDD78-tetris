@@ -1,7 +1,6 @@
 package se.liu.ida.linbe810.tddd78;
 
 import java.awt.*;
-import java.awt.Color;
 import java.util.*;
 import javax.swing.*;
 
@@ -9,12 +8,10 @@ public class TetrisComponent extends JComponent
 {
     private static Board gameBoard;
     private EnumMap<SquareType, Color> colourMap;
-    private static int SPACE = 2;
-    private static int TEXT_SIZE = 12;
-    private static int SQUARE_SIZE = 30;
+    private final static int SQUARE_SIZE = 30;
 
     public TetrisComponent(Board gameBoard) {
-	this.gameBoard = gameBoard;
+	TetrisComponent.gameBoard = gameBoard;
         this.colourMap = new EnumMap<SquareType, Color>(SquareType.class);
         fillColourMap();
     }

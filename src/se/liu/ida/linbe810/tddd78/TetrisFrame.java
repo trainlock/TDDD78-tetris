@@ -15,7 +15,7 @@ public class TetrisFrame extends JFrame
      */
     private JFrame frame;
     private Board gameBoard;
-    private JComponent component;
+    private JComponent component = null;
 
     public TetrisFrame(final Board gameBoard, final String title) throws HeadlessException {
 	super(title);
@@ -53,13 +53,8 @@ public class TetrisFrame extends JFrame
     }
 
     private void createMenus() {
-	// Inget händer när man trycker på knapparna.
-	// Fönstret stängs ej ner!
-
-	JMenu newGameButton = new JMenu("New Game");
-	//JMenuItem newGameButton = new JMenuItem("New Game", 'N');
-	JMenu quitButton = new JMenu("Quit");
-	//JMenuItem quitButton = new JMenuItem("Quit", 'Q');
+	JButton newGameButton = new JButton("New Game");
+	JButton quitButton = new JButton("Quit");
 
 	newGameButton.setAction(new AbstractAction() {
 	    @Override public void actionPerformed(ActionEvent e) {
@@ -71,10 +66,9 @@ public class TetrisFrame extends JFrame
 								JOptionPane.QUESTION_MESSAGE,
 								null,
 								options,
-								options[2]);
-		if (optionChosen == JOptionPane.YES_OPTION); {
-		    System.exit(0);
-		}
+								options[1]);
+		if (optionChosen == JOptionPane.YES_OPTION);
+		System.exit(0);
 	    }
 	});
 	quitButton.setAction(new AbstractAction() {
@@ -87,21 +81,20 @@ public class TetrisFrame extends JFrame
 								JOptionPane.QUESTION_MESSAGE,
 								null,
 								options,
-								options[2]);
-		if (optionChosen == JOptionPane.YES_OPTION); {
-		    System.exit(0);
-		}
+								options[1]);
+		if (optionChosen == JOptionPane.YES_OPTION);
+		System.exit(0);
 	    }
 	});
 
 	newGameButton.setText("New Game");
 	quitButton.setText("Quit");
 
-	final JMenuBar bar = new JMenuBar();
-	bar.add(newGameButton);
-	bar.add(Box.createHorizontalGlue());
-	bar.add(quitButton);
-	frame.setJMenuBar(bar);
+	final JMenuBar menuBar = new JMenuBar();
+	menuBar.add(newGameButton);
+	menuBar.add(Box.createHorizontalGlue());
+	menuBar.add(quitButton);
+	frame.setJMenuBar(menuBar);
     }
 
 /**
