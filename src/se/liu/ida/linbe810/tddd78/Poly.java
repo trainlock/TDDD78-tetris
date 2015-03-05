@@ -1,5 +1,8 @@
 package se.liu.ida.linbe810.tddd78;
 
+/**
+ * The methodes used to modify the tetrominos.
+ */
 public class Poly
 {
     private SquareType[][] polyShape;

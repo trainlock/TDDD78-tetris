@@ -3,7 +3,7 @@ package se.liu.ida.linbe810.tddd78;
 /**
  * Creates a board and tests it.
  */
-public final class BoardTest
+public final class  BoardTest
 {
     private BoardTest() {}
 

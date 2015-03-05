@@ -1,11 +1,15 @@
 package se.liu.ida.linbe810.tddd78;
 
+/**
+ * Converts the gameboard into a string and adds a random polynom.
+ */
 public final class BoardToTextConverter
 {
     private BoardToTextConverter() {}
 
     public static String convertToText(Board gameBoard) {
 	StringBuilder builder = new StringBuilder();
+
 	int height = gameBoard.getHeight();
 	int width = gameBoard.getWidth();
 	Poly poly = gameBoard.getFalling();
@@ -13,12 +17,14 @@ public final class BoardToTextConverter
 	int curY = gameBoard.getFallingY();
 	int maxX = poly.getWidth();
 	int maxY = poly.getHeight();
+
 	for (int h = 0; h < height; h++) {
 	    int polyY = posConverterY(curY, h);
 	    for (int w = 0; w < width; w++) {
 		int polyX = posConverterX(curX, w);
 		if (polyX >= 0 && polyX < maxX && polyY >= 0 && polyY < maxY) {
 		    if (poly.getPolyShape()[polyY][polyX] != SquareType.EMPTY) {
+			System.out.println(poly.getPolyShape()[polyY][polyX]);
 			squareType(poly.getPolyShape()[polyY][polyX], builder);
 		    } else {
 			squareType(gameBoard.getSquare(h, w), builder);
@@ -44,7 +50,7 @@ public final class BoardToTextConverter
 	return polyCordY;
     }
 
-    public static void squareType(SquareType squareType, StringBuilder builder) {
+    public static StringBuilder squareType(SquareType squareType, StringBuilder builder) {
 	switch (squareType) {
 	    case EMPTY:
 		builder.append(" ");

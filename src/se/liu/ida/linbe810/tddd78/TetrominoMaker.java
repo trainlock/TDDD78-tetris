@@ -1,5 +1,8 @@
 package se.liu.ida.linbe810.tddd78;
 
+/**
+ * Creates a double list that represent a tetrisblock.
+ */
 public final class TetrominoMaker
 {
     private TetrominoMaker() {}
