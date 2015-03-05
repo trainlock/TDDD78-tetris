@@ -31,6 +31,7 @@ public class TetrisFrame extends JFrame
 	final Action doOneStep = new AbstractAction() {
 	    @Override public void actionPerformed(final ActionEvent e) {
   		gameBoard.randomBoard();
+		// Kalla komponent som sedan får rita om sig själv eller något sådant
 		component.repaint();
 	    }
  	};

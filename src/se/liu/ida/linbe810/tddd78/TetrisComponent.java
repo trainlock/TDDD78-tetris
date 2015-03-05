@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.*;
 
-public class TetrisComponent extends JComponent
+public class TetrisComponent extends JComponent implements BoardListener
 {
     private static Board gameBoard;
     private EnumMap<SquareType, Color> colourMap;
@@ -88,5 +88,9 @@ public class TetrisComponent extends JComponent
 
     public Color getSqColourMap(SquareType squareType) {
         return colourMap.get(squareType);
+    }
+
+    @Override public void boardChanged() {
+        repaint();
     }
 }
