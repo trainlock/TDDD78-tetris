@@ -1,7 +1,6 @@
 package se.liu.ida.linbe810.tddd78;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
