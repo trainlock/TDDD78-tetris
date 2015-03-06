@@ -11,7 +11,7 @@ public class Board
     private SquareType[][] squares;
     private int height, width;
     private Poly falling;
-    private ArrayList<BoardListener> boardListener;
+    //private ArrayList<BoardListener> boardListener;
 
     public Board(int height, int width) {
         Random rand = new Random();
@@ -19,7 +19,7 @@ public class Board
         this.height = height;
         this.width = width;
         squares = new SquareType[height][width];
-        boardListener = new ArrayList<BoardListener>();
+        //boardListener = new ArrayList<BoardListener>();
 
         falling = TetrominoMaker.getPoly(rand.nextInt(TetrominoMaker.getNumberOfTypes()));
         final int fallingX = 0;
@@ -36,7 +36,7 @@ public class Board
                 }
             }
         }
-        notifyListeners();
+        //notifyListeners();
     }
 
     public void randomBoard() {
@@ -49,7 +49,7 @@ public class Board
             }
         }
     }
-
+/**
     public void addBoardListener(BoardListener bl) {
         boardListener.add(bl);
     }
@@ -59,6 +59,7 @@ public class Board
             bl.boardChanged();
         }
     }
+ */
 
     public void setSquare(int h, int w, SquareType value) {
         squares[h][w] = value;

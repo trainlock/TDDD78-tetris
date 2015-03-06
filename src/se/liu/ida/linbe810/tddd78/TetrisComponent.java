@@ -16,6 +16,7 @@ public class TetrisComponent extends JComponent implements BoardListener
         fillColourMap();
     }
 
+    @Override
     public Dimension getPreferredSize() {
 	int width = SQUARE_SIZE * gameBoard.getWidth();
 	int height = SQUARE_SIZE * gameBoard.getHeight();

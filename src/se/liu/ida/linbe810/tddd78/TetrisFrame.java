@@ -7,7 +7,7 @@ import java.awt.event.*;
 /**
  * Creates a graphic board of the tetris.
  */
-public class TetrisFrame extends JFrame
+public class TetrisFrame extends JFrame implements MouseListener
 {
     public static final int TIME_INTERVALS = 500;
     /**
@@ -22,6 +22,8 @@ public class TetrisFrame extends JFrame
 	this.gameBoard = gameBoard;
 
 	this.frame = new JFrame("Menybar");
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	createGUI();
 	createMenus();
 
@@ -48,6 +50,7 @@ public class TetrisFrame extends JFrame
 	component = new TetrisComponent(gameBoard);
 
 	component.setSize(getPreferredSize());
+	frame.addMouseListener(this);
 
 	frame.setLayout(new BorderLayout());
 	frame.add(component, BorderLayout.CENTER);
@@ -96,6 +99,26 @@ public class TetrisFrame extends JFrame
 	menuBar.add(Box.createHorizontalGlue());
 	menuBar.add(quitButton);
 	frame.setJMenuBar(menuBar);
+    }
+
+    @Override public void mouseClicked(final MouseEvent e) {
+
+    }
+
+    @Override public void mousePressed(final MouseEvent e) {
+
+    }
+
+    @Override public void mouseReleased(final MouseEvent e) {
+
+    }
+
+    @Override public void mouseEntered(final MouseEvent e) {
+
+    }
+
+    @Override public void mouseExited(final MouseEvent e) {
+
     }
 
 /**
