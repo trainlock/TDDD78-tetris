@@ -11,7 +11,7 @@ public class Board
     private SquareType[][] squares;
     private int height, width;
     private Poly falling;
-    //private ArrayList<BoardListener> boardListener;
+    private ArrayList<BoardListener> boardListener;
 
     public Board(int height, int width) {
         Random rand = new Random();
@@ -33,6 +33,7 @@ public class Board
                 }
                 else{
                     squares[row][column] = SquareType.EMPTY ;
+                    notifyListeners();
                 }
             }
         }
@@ -49,7 +50,7 @@ public class Board
             }
         }
     }
-/**
+
     public void addBoardListener(BoardListener bl) {
         boardListener.add(bl);
     }
@@ -59,10 +60,10 @@ public class Board
             bl.boardChanged();
         }
     }
- */
 
     public void setSquare(int h, int w, SquareType value) {
         squares[h][w] = value;
+        notifyListeners();
     }
 
     public SquareType getSquare(int h, int w) {
