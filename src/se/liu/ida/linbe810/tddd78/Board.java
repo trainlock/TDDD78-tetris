@@ -19,7 +19,8 @@ public class Board
         this.height = height;
         this.width = width;
         squares = new SquareType[height][width];
-        //boardListener = new ArrayList<BoardListener>();
+
+        boardListener = new ArrayList<BoardListener>();
 
         falling = TetrominoMaker.getPoly(rand.nextInt(TetrominoMaker.getNumberOfTypes()));
         final int fallingX = 0;

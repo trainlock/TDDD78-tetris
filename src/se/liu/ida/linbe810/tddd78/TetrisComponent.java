@@ -8,11 +8,14 @@ public class TetrisComponent extends JComponent implements BoardListener
 {
     private static Board gameBoard;
     private EnumMap<SquareType, Color> colourMap;
+    private JPanel jPanel;
     private final static int SQUARE_SIZE = 30;
 
     public TetrisComponent(Board gameBoard) {
 	TetrisComponent.gameBoard = gameBoard;
+        gameBoard.addBoardListener(this);
         this.colourMap = new EnumMap<SquareType, Color>(SquareType.class);
+        jPanel = new JPanel();
         fillColourMap();
     }
 
@@ -92,6 +95,6 @@ public class TetrisComponent extends JComponent implements BoardListener
     }
 
     @Override public void boardChanged() {
-        repaint();
+        jPanel.repaint();
     }
 }
