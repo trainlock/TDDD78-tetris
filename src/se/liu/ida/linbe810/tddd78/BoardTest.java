@@ -8,12 +8,10 @@ public final class  BoardTest
     private BoardTest() {}
 
     public static void main(String[] args) {
-	//for (int count = 0; count < 10; count++) {
-	Board board = new Board(20, 10);
-	//board.randomBoard();
-	//System.out.println(BoardToTextConverter.convertToText(board));
-
-	new TetrisFrame(board, "MyBoard");
+	final int width = 10, height = 21;
+        Board board = new Board(height, width);
+	TetrisFrame tetrisFrame = new TetrisFrame(board, "MyBoard");
+        tetrisFrame.setVisible(true);
     }
 }
 

@@ -16,25 +16,25 @@ public final class TetrominoMaker
 	Poly poly = null;
 
 	switch (SquareType.values()[n]) {
-	    case I:
+	    case I_BLOCK:
 		poly = createPolyI();
 		break;
-	    case O:
+	    case O_BLOCK:
 		poly = createPolyO();
 		break;
-	    case T:
+	    case T_BLOCK:
 		poly = createPolyT();
 		break;
-	    case S:
+	    case S_BLOCK:
 		poly = createPolyS();
 		break;
-	    case Z:
+	    case Z_BLOCK:
 		poly = createPolyZ();
 		break;
-	    case J:
+	    case J_BLOCK:
 		poly = createPolyJ();
 		break;
-	    case L:
+	    case L_BLOCK:
 		poly = createPolyL();
 		break;
 	}
@@ -53,20 +53,20 @@ public final class TetrominoMaker
 	int size = 4;
 	SquareType[][] squareI = new SquareType[size][size];
 	createEmptyBackground(squareI, size);
-	squareI[1][0] = SquareType.I;
-	squareI[1][1] = SquareType.I;
-	squareI[1][2] = SquareType.I;
-	squareI[1][3] = SquareType.I;
+	squareI[0][1] = SquareType.I_BLOCK;
+	squareI[1][1] = SquareType.I_BLOCK;
+	squareI[2][1] = SquareType.I_BLOCK;
+	squareI[3][1] = SquareType.I_BLOCK;
 	return new Poly(squareI);
     }
 
     public static Poly createPolyO() {
 	int size = 2;
 	SquareType[][] squareO = new SquareType[size][size];
-	squareO[0][0] = SquareType.O;
-	squareO[0][1] = SquareType.O;
-	squareO[1][0] = SquareType.O;
-	squareO[1][1] = SquareType.O;
+	squareO[0][0] = SquareType.O_BLOCK;
+	squareO[0][1] = SquareType.O_BLOCK;
+	squareO[1][0] = SquareType.O_BLOCK;
+	squareO[1][1] = SquareType.O_BLOCK;
 	return new Poly(squareO);
     }
 
@@ -74,10 +74,10 @@ public final class TetrominoMaker
 	int size = 3;
 	SquareType[][] squareT = new SquareType[size][size];
 	createEmptyBackground(squareT, size);
-	squareT[0][1] = SquareType.T;
-	squareT[1][0] = SquareType.T;
-	squareT[1][1] = SquareType.T;
-	squareT[1][2] = SquareType.T;
+	squareT[0][1] = SquareType.T_BLOCK;
+	squareT[1][0] = SquareType.T_BLOCK;
+	squareT[1][1] = SquareType.T_BLOCK;
+	squareT[1][2] = SquareType.T_BLOCK;
 	return new Poly(squareT);
     }
 
@@ -85,10 +85,10 @@ public final class TetrominoMaker
 	int size = 3;
 	SquareType[][] squareS = new SquareType[size][size];
 	createEmptyBackground(squareS, size);
-	squareS[0][1] = SquareType.S;
-	squareS[0][2] = SquareType.S;
-	squareS[1][0] = SquareType.S;
-	squareS[1][1] = SquareType.S;
+	squareS[0][1] = SquareType.S_BLOCK;
+	squareS[0][2] = SquareType.S_BLOCK;
+	squareS[1][0] = SquareType.S_BLOCK;
+	squareS[1][1] = SquareType.S_BLOCK;
 	return new Poly(squareS);
     }
 
@@ -96,10 +96,10 @@ public final class TetrominoMaker
 	int size = 3;
 	SquareType[][] squareZ = new SquareType[size][size];
 	createEmptyBackground(squareZ, size);
-	squareZ[0][0] = SquareType.Z;
-	squareZ[0][1] = SquareType.Z;
-	squareZ[1][1] = SquareType.Z;
-	squareZ[1][2] = SquareType.Z;
+	squareZ[0][0] = SquareType.Z_BLOCK;
+	squareZ[0][1] = SquareType.Z_BLOCK;
+	squareZ[1][1] = SquareType.Z_BLOCK;
+	squareZ[1][2] = SquareType.Z_BLOCK;
 	return new Poly(squareZ);
     }
 
@@ -107,10 +107,10 @@ public final class TetrominoMaker
 	int size = 3;
 	SquareType[][] squareJ = new SquareType[size][size];
 	createEmptyBackground(squareJ, size);
-	squareJ[0][0] = SquareType.J;
-	squareJ[1][0] = SquareType.J;
-	squareJ[1][1] = SquareType.J;
-	squareJ[1][2] = SquareType.J;
+	squareJ[0][0] = SquareType.J_BLOCK;
+	squareJ[1][0] = SquareType.J_BLOCK;
+	squareJ[1][1] = SquareType.J_BLOCK;
+	squareJ[1][2] = SquareType.J_BLOCK;
 	return new Poly(squareJ);
     }
 
@@ -118,10 +118,10 @@ public final class TetrominoMaker
 	int size = 3;
 	SquareType[][] squareL = new SquareType[size][size];
 	createEmptyBackground(squareL, size);
-	squareL[0][2] = SquareType.L;
-	squareL[1][0] = SquareType.L;
-	squareL[1][1] = SquareType.L;
-	squareL[1][2] = SquareType.L;
+	squareL[0][2] = SquareType.L_BLOCK;
+	squareL[1][0] = SquareType.L_BLOCK;
+	squareL[1][1] = SquareType.L_BLOCK;
+	squareL[1][2] = SquareType.L_BLOCK;
 	return new Poly(squareL);
     }
 

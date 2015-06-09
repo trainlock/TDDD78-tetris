@@ -12,9 +12,9 @@ public final class BoardToTextConverter
 
 	int height = gameBoard.getHeight();
 	int width = gameBoard.getWidth();
-	Poly poly = gameBoard.getFalling();
-	int curX = gameBoard.getFallingX();
-	int curY = gameBoard.getFallingY();
+	Poly poly = gameBoard.getFallingPoly();
+	int curX = 2;
+	int curY = 1;
 	int maxX = poly.getWidth();
 	int maxY = poly.getHeight();
 
@@ -24,13 +24,12 @@ public final class BoardToTextConverter
 		int polyX = posConverterX(curX, w);
 		if (polyX >= 0 && polyX < maxX && polyY >= 0 && polyY < maxY) {
 		    if (poly.getPolyShape()[polyY][polyX] != SquareType.EMPTY) {
-			System.out.println(poly.getPolyShape()[polyY][polyX]);
 			squareType(poly.getPolyShape()[polyY][polyX], builder);
 		    } else {
-			squareType(gameBoard.getSquare(h, w), builder);
+			squareType(gameBoard.getSquareType(h, w), builder);
 		    }
 		} else {
-		    squareType(gameBoard.getSquare(h, w), builder);
+		    squareType(gameBoard.getSquareType(h, w), builder);
 		}
 		builder.append(' ');
 	    }
@@ -55,26 +54,26 @@ public final class BoardToTextConverter
 	    case EMPTY:
 		builder.append(" ");
 		break;
-	    case I:
-		builder.append("I");
+	    case I_BLOCK:
+		builder.append("I_BLOCK");
 		break;
-	    case J:
-		builder.append("J");
+	    case J_BLOCK:
+		builder.append("J_BLOCK");
 		break;
-	    case L:
-		builder.append("L");
+	    case L_BLOCK:
+		builder.append("L_BLOCK");
 		break;
-	    case O:
-		builder.append("O");
+	    case O_BLOCK:
+		builder.append("O_BLOCK");
 		break;
-	    case S:
-		builder.append("S");
+	    case S_BLOCK:
+		builder.append("S_BLOCK");
 		break;
-	    case T:
-		builder.append("T");
+	    case T_BLOCK:
+		builder.append("T_BLOCK");
 		break;
-	    case Z:
-		builder.append("Z");
+	    case Z_BLOCK:
+		builder.append("Z_BLOCK");
 		break;
 	    case OUTSIDE:
 		builder.append("§");
