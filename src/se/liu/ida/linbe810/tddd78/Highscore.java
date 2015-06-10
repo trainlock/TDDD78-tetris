@@ -18,6 +18,7 @@ public class Highscore
 	return highscore;
     }
 
+    // We talked about this.
     @Override public String toString() {
 	StringBuilder builder = new StringBuilder();
 	builder.append(name);

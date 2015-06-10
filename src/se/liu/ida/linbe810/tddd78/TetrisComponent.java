@@ -10,12 +10,11 @@ public class TetrisComponent extends JComponent implements BoardListener
 {
     private Board gameBoard;
     private Map<SquareType, Color> colourMap;
-    private int squareSize;
+    private final static int SQUARE_SIZE = Board.SQUARE_SIZE;
 
     public TetrisComponent(Board gameBoard) {
-	this.gameBoard = gameBoard;
+        this.gameBoard = gameBoard;
         this.colourMap = new EnumMap<SquareType, Color>(SquareType.class);
-        squareSize = Board.getSquareSize();
         gameBoard.addBoardListener(this);
         this.getKeyBindings();
         fillColourMap();
@@ -24,8 +23,8 @@ public class TetrisComponent extends JComponent implements BoardListener
     @Override
     public Dimension getPreferredSize() {
         super.getPreferredSize();
-	int width = squareSize * gameBoard.getWidth();
-	int height = squareSize * gameBoard.getHeight();
+        int width = SQUARE_SIZE * gameBoard.getWidth();
+        int height = SQUARE_SIZE * gameBoard.getHeight();
         return new Dimension(width, height);
     }
 
@@ -44,7 +43,7 @@ public class TetrisComponent extends JComponent implements BoardListener
 
     @Override
     public void paintComponent(final Graphics g) {
-	super.paintComponent(g);
+        super.paintComponent(g);
         final Graphics2D g2d = (Graphics2D) g;
         gameBoard.draw(g2d, colourMap);
     }
@@ -86,7 +85,7 @@ public class TetrisComponent extends JComponent implements BoardListener
 
     public void getKeyBindings(){
         this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("Q"), "exitAction");
-	this.getActionMap().put("exitAction", exitAction);
+        this.getActionMap().put("exitAction", exitAction);
 
         this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("RIGHT"), "moveRight");
         this.getActionMap().put("moveRight", moveRight);

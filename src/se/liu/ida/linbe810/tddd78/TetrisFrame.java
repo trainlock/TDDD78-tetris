@@ -34,9 +34,9 @@ public class TetrisFrame extends JFrame
 
 	final Action doOneStep = new AbstractAction() {
 	    @Override public void actionPerformed(final ActionEvent e) {
-  		tick();
+		tick();
 	    }
- 	};
+	};
 
 	final Timer clockTimer = new Timer(TIME_INTERVALS, doOneStep);
 	clockTimer.setCoalesce(true);
@@ -144,10 +144,10 @@ public class TetrisFrame extends JFrame
     }
 
     public void tick() {
-        if (gameBoard.gameOver()) {
+	if (gameBoard.gameOver()) {
 	    showGameOver();
-        }
-        else {
+	}
+	else {
 	    gameBoard.fall();
 	    highscoreLabel.setText("Score: " + gameBoard.getHighScore());
 	}

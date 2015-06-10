@@ -27,14 +27,16 @@ public class Board
     private boolean isGameOver;
     private boolean isFullRow;
 
-    private final static int SQUARE_SIZE = 30;
+    public final static int SQUARE_SIZE = 30;
     private final static int ONE_ROW_SCORE = 100;
     private final static int TWO_ROWS_SCORE = 300;
     private final static int THREE_ROWS_SCORE = 500;
     private final static int FOUR_ROWS_SCORE = 800;
 
+    private Random rand;
+
     public Board(int height, int width) {
-        Random rand = new Random();
+        this.rand = new Random();
 
         this.height = height;
         this.width = width;
@@ -89,11 +91,11 @@ public class Board
                     if (fallingPoly.getPolyShape()[polyY][polyX].equals(SquareType.EMPTY) ||
                         square.equals(SquareType.OUTSIDE)) {
                         paintSquare(g2d, squareColor, square, column, row);
-                        }
+                    }
                     else {
                         paintSquare(g2d, squareColor, fallingPoly.getPolyShape()[polyY][polyX], column, row);
-                        }
                     }
+                }
                 else {
                     paintSquare(g2d, squareColor, square, column, row);
                 }
@@ -144,7 +146,6 @@ public class Board
     }
 
     public void generateNewPoly() {
-        Random rand = new Random();
         this.fallingPoly = TetrominoMaker.getPoly(rand.nextInt(TetrominoMaker.getNumberOfTypes()));
         this.fallingPosX = width/2 - 1; //fallingPoly.getWidth()/2);
         this.fallingPosY = 1;
@@ -271,7 +272,7 @@ public class Board
                 for (int w = 0; w < fallingPoly.rotateRight().getWidth(); w++) {
                     if (fallingPoly.rotateRight().polyShape(h, w) != SquareType.EMPTY &&
                         this.getSquareType((fallingPosY + h), (fallingPosX + w)) != SquareType.EMPTY) {
-                            return false;
+                        return false;
                     }
                 }
             }
@@ -295,10 +296,6 @@ public class Board
 
     public Color getSqColour(SquareType squareType, Map<SquareType, Color> colourMap) {
         return colourMap.get(squareType);
-    }
-
-    public static int getSquareSize() {
-        return SQUARE_SIZE;
     }
 
     public int getHeight() {
