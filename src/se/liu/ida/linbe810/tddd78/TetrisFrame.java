@@ -139,7 +139,7 @@ public class TetrisFrame extends JFrame
 	Board board = new Board(gameBoard.getHeight(), gameBoard.getWidth());
 	board.setIsGameOver(false);
 	TetrisFrame tetrisFrame= new TetrisFrame(board, "MyBoard");
-
+	tetrisFrame.setVisible(true);
 	board.addBoardListener(new TetrisComponent(board));
     }
 

@@ -12,29 +12,29 @@ public final class TetrominoMaker
     }
 
     public static Poly getPoly(int n) {
+	Poly poly;
 
-	Poly poly = null;
-
-	switch (SquareType.values()[n]) {
-	    case I_BLOCK:
+	switch (n) {
+	    case 0: // I_BLOCK
 		poly = createPolyI();
 		break;
-	    case O_BLOCK:
+	    case 1: // O_BLOCK
 		poly = createPolyO();
 		break;
-	    case T_BLOCK:
+	    case 2: // T_BLOCK
 		poly = createPolyT();
 		break;
-	    case S_BLOCK:
+	    case 3: // S_BLOCK
 		poly = createPolyS();
 		break;
-	    case Z_BLOCK:
+	    case 4: // Z_BLOCK
 		poly = createPolyZ();
 		break;
-	    case J_BLOCK:
+	    case 5: // J_BLOCK
 		poly = createPolyJ();
 		break;
-	    case L_BLOCK:
+	    case 6: // L_BLOCK
+	    default:
 		poly = createPolyL();
 		break;
 	}

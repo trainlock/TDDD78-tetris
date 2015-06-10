@@ -28,10 +28,10 @@ public class Board
     private boolean isFullRow;
 
     private final static int SQUARE_SIZE = 30;
-    private static final int ONE_ROW_SCORE = 100;
-    private static final int TWO_ROWS_SCORE = 300;
-    private static final int THREE_ROWS_SCORE = 500;
-    private static final int FOUR_ROWS_SCORE = 800;
+    private final static int ONE_ROW_SCORE = 100;
+    private final static int TWO_ROWS_SCORE = 300;
+    private final static int THREE_ROWS_SCORE = 500;
+    private final static int FOUR_ROWS_SCORE = 800;
 
     public Board(int height, int width) {
         Random rand = new Random();
@@ -297,7 +297,7 @@ public class Board
         return colourMap.get(squareType);
     }
 
-    public int getSquareSize() {
+    public static int getSquareSize() {
         return SQUARE_SIZE;
     }
 

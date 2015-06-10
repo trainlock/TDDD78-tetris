@@ -15,7 +15,7 @@ public class TetrisComponent extends JComponent implements BoardListener
     public TetrisComponent(Board gameBoard) {
 	this.gameBoard = gameBoard;
         this.colourMap = new EnumMap<SquareType, Color>(SquareType.class);
-        this.squareSize = gameBoard.getSquareSize();
+        squareSize = Board.getSquareSize();
         gameBoard.addBoardListener(this);
         this.getKeyBindings();
         fillColourMap();
